@@ -8,10 +8,9 @@ lazy val liteflow = (project in file("."))
   .aggregate(
     liteflowDemo.jvm,
     liteflowDemo.js,
-    liteflowDemo.native,
   )
 
-lazy val liteflowDemo = (crossProject(JVMPlatform, JSPlatform, NativePlatform) in file("liteflow-demo"))
+lazy val liteflowDemo = (crossProject(JVMPlatform, JSPlatform) in file("liteflow-demo"))
   .settings(name := "liteflow-demo")
   .settings(crossTestDependencies(scalaTest.flatSpec))
   .jvmSettings(libraryDependencies ++= Seq(
